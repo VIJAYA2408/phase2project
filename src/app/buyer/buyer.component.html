@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Kitchen story</title>
+  </head>
+  <body class="bg-image">
+    <div>
+      <form [formGroup]="kitchen" align="center">
+      <br><br><br><br>
+        <div >
+          <h1>Kitchen Story</h1>
+          <img src="../assets/fd.jpg">
+         <div  class="container">
+          <button  type="button" class="btn-success" routerLink="/admin" >Navigate To Admin</button></div>
+        </div><br><br>
+        <div align="center">
+          <div >
+            <input list="bow"  placeholder="Search" aria-label="Search" formControlName="search">
+                <datalist id="bow">
+                    <option value="essentials">
+                    <option  value="fooditem">
+                    <option  value="biscuits">
+                </datalist>
+                <br><br>
+          </div>
+            <div><button class="btn btn-outline-success" (click)="search()" type="submit">Search</button></div>
+        </div>
+          </form>
+       <br><br><br>
+    </div>
+  <table *ngIf="ischoice" class="table">
+    <thead>
+      <th>Searched Item</th>
+      <th>Price</th>
+      <th>quantity</th>
+      <th>choice</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of arr">
+        <td>{{hero.types}}</td>
+        <td>{{hero.price}}</td>
+        <td>{{hero.quantity}}</td>
+        <td>
+         <button type="button" (click)="buy(hero.types,hero.price)" routerLink="/buyer">Buy</button>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </body>
+</html>

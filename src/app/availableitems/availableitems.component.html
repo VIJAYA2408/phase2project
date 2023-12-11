@@ -1,0 +1,71 @@
+<br><br><br><br>
+    <div *ngIf="ischeck" align="center">
+            <label for="Manager"  class="form-label">Available Food Items:</label>
+            <select name="Manager" id="Manager"(input)="secontypeevent($event)" aria-label="Disabled select example">
+                <option ></option>
+               <option *ngFor="let hero of avail_items" [value]="hero.items">{{hero.items}}</option>
+            </select>
+  </div>
+  
+    <div *ngIf="isthischeck" align="center">
+        <dialog open>
+       <h4>Invalid Username and Password!!!!!</h4>
+    </dialog>
+    </div>
+
+    <div   *ngIf="allowadd">
+        <div  class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="type" (click)="add()" class="btn btn-primary">Add</button>&nbsp;
+        </div>
+        <br><br>
+        <table class="table">
+         <thead>
+               
+                    <th>FoodItems</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+         </thead>
+         
+          <tbody *ngIf="ess">
+                    <tr *ngFor="let hero1 of essentials let i=index" >
+                        <td>{{hero1.types}}</td>
+                        <td>{{hero1.price}}</td>
+                        <td>{{hero1.quantity}}</td>
+                        <td><button type="type" value="hero1.types" (click)="deletee(i)">delete</button></td>
+                    </tr>
+            </tbody> 
+            <tbody *ngIf="fditem">
+                <tr  *ngFor="let hero1 of fooditem let i=index" >
+                    <td>{{hero1.types}}</td>
+                    <td>{{hero1.price}}</td>
+                    <td>{{hero1.quantity}}</td>
+                    <td><button type="type"  value="hero1.types" (click)="deletee(i)">delete</button></td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="bis">
+                <tr  *ngFor="let hero1 of biscuits let i=index" >
+                    <td>{{hero1.types}}</td>
+                    <td>{{hero1.price}}</td>
+                    <td>{{hero1.quantity}}</td>
+                    <td><button type="type" value="hero1.types" (click)="deletee(i)">delete</button></td>
+                </tr>
+        </tbody>
+        </table>
+    </div>
+    <br><br><br>
+<div *ngIf="disadd" align="center">
+    <div>
+        <label for="iname">Item Name:</label>&nbsp;&nbsp;&nbsp;
+       <input type="text" id="iname" [(ngModel)]="name">
+     </div><br><br>
+     <div>
+      <label for="iname">Item price:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="text" id="iname" [(ngModel)]="price" >
+   </div><br><br>
+   <div>
+    <label for="iname">Item Quantity:</label>&nbsp;
+   <input type="text" id="iname" [(ngModel)]="quantity" >
+ </div><br><br>
+              <button type="button" (click)="submit()">SUBMIT</button>     
+</div>

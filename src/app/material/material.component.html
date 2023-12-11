@@ -1,0 +1,29 @@
+<div *ngIf="dialog"> 
+    <dialog open>
+        <h3>Order and Details of the payment</h3>
+            <p>Your purchased item :{{arr[0].a}}</p>
+                <div >
+                  Quantity: <input type="text" style = "Width: 50px; " [(ngModel)]="selectedquantity" >&nbsp;&nbsp;
+                   <button type="button" (click)="alertok()">ok</button>
+             </div>
+             <h5>Total price of your order={{arr[0].b}}*{{selectedquantity}}={{answer}}</h5>  
+    <span><button type="button" (click)="pay()">pay</button></span>&nbsp;&nbsp;
+    <button type="button" (click)="cancel()">cancel</button>  
+      </dialog>
+</div>
+  <div *ngIf="ispay">
+    <dialog open>
+    <P>Delivery</P>
+    Monday,11 december,2023
+    <h1>Your payment was done!!!!</h1>
+    <div class="grid-container">
+        <div class="grid-item">{{arr[0].a}}</div>
+        <div class="grid-item">{{arr[0].b}}</div>
+        Qty:{{selectedquantity}}
+      </div>
+    </dialog>
+  </div>
+  <div *ngIf="iscancel">
+    <dialog open>
+        <h1 align="center">Your Payment was Cancelled! Please try Again!..
+  </h1></dialog></div>

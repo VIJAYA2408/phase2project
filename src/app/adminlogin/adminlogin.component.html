@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>admin</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+      <div *ngIf="isnotchange">
+        <img src="../assets/login.png" style="width: 300px; height: 300px;">
+        <form  [formGroup]="adminform" align="center">
+          <br>
+          <div class="col-md-12">
+              <label for="username">Username   </label>&nbsp;&nbsp;
+              <input type="email" id="username" formControlName="username" (oninput)="username($event)">
+          <br><br>
+              <label for="password">Password   </label>&nbsp;&nbsp;
+              <input type="password" id="username"  formControlName="password"  (oninput)="password($event)">
+          </div>
+          <br>
+    <div class="form-group"><button type="button" (click)="check()">Login</button></div>
+    <br>
+    <span class="psw">Forgot <a style="color: blue;" (click)="changepassword()">password?</a></span>
+  </form>
+      </div>
+<div *ngIf="ischange" align="center">
+
+    <div id="alert"></div>
+    <br><br><br>
+  <div>
+    <label for="password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="password" id="password"  [(ngModel)]="type" />
+  </div><br>
+    <div>
+      <label for="password-verify">Retype password</label>&nbsp;
+      <input type="password" id="password-verify" [(ngModel)]="retype"/><br>
+    </div><br>
+    <span> <button type="submit" (click)="submitpass()">Reset password</button></span>&nbsp;
+
+ <button type="button" (click)="changepassword()">Go Back</button>
+</div>
+    </body>
+</html>
